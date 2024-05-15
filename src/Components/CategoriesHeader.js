@@ -19,7 +19,7 @@ const CategoriesHeader = ({ navigation }) => {
 
   const fetchCategories = async () => {
     try {
-      const response = await fetch('http://192.168.15.50:3030/categories/all');
+      const response = await fetch('http://192.168.56.1:3030/categories/all');
       const data = await response.json();
       setCategoriesList(data);
     } catch (error) {
