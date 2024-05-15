@@ -13,7 +13,7 @@ const SeasonalList = ({ navigation }) => {
   const fetchSeasonalList = async () => {
     try {
       const response = await fetch(
-        'http://192.168.15.50:3030/recipes-list/getSeasonalList'
+        'http://192.168.56.1:3030/recipes-list/getSeasonalList'
       );
       const data = await response.json();
       setSeasonalList(data);
