@@ -1,6 +1,7 @@
 import React from 'react';
 import { FlatList, Image, StyleSheet, Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { address } from '../../address';
 
 const SeasonalList = ({ navigation }) => {
   const [seasonalList, setSeasonalList] = React.useState([]);
@@ -12,9 +13,7 @@ const SeasonalList = ({ navigation }) => {
 
   const fetchSeasonalList = async () => {
     try {
-      const response = await fetch(
-        'http://192.168.15.50:3030/recipes-list/getSeasonalList'
-      );
+      const response = await fetch(address + '/recipes-list/getSeasonalList');
       const data = await response.json();
       setSeasonalList(data);
     } catch (error) {
@@ -115,6 +114,8 @@ const SeasonalList = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     // paddingHorizontal: 12,
+    marginTop: 48,
+    gap: 8,
   },
   titlesContainer: {
     flexDirection: 'row',
@@ -125,7 +126,6 @@ const styles = StyleSheet.create({
   mainTitle: {
     fontFamily: 'LoraMediumItalic',
     color: '#241200',
-    marginTop: 48,
     marginBottom: 6,
     fontSize: 18,
     lineHeight: 18,
@@ -135,7 +135,6 @@ const styles = StyleSheet.create({
     lineHeight: 22,
     fontFamily: 'LoraRegular',
     color: '#241200',
-    marginBottom: 8,
   },
   openIcon: {
     height: 24,

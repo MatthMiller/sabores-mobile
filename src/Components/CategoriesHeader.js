@@ -7,10 +7,9 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
+import { address } from '../../address';
 
 const CategoriesHeader = ({ navigation }) => {
-  console.log(navigation);
-
   const [categoriesList, setCategoriesList] = React.useState([]);
 
   React.useEffect(() => {
@@ -19,7 +18,7 @@ const CategoriesHeader = ({ navigation }) => {
 
   const fetchCategories = async () => {
     try {
-      const response = await fetch('http://192.168.15.50:3030/categories/all');
+      const response = await fetch(address + '/categories/all');
       const data = await response.json();
       setCategoriesList(data);
     } catch (error) {
