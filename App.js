@@ -23,6 +23,7 @@ const App = () => {
     LoraMedium: require('./assets/fonts/Lora-Medium.ttf'),
     LoraMediumItalic: require('./assets/fonts/Lora-MediumItalic.ttf'),
     LoraSemiBoldItalic: require('./assets/fonts/Lora-SemiBoldItalic.ttf'),
+    LoraSemiBold: require('./assets/fonts/Lora-SemiBold.ttf'),
     UbuntuRegular: require('./assets/fonts/Ubuntu-Regular.ttf'),
     UbuntuMedium: require('./assets/fonts/Ubuntu-Medium.ttf'),
   });
