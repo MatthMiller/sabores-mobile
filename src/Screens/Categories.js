@@ -1,5 +1,6 @@
 import React from 'react';
 import { FlatList, StyleSheet, Text, View } from 'react-native';
+import { address } from '../../address';
 import CategoryCard from '../Components/CategoryCards';
 import Header from '../Components/Header';
 
@@ -14,7 +15,7 @@ const Categories = ({ navigation }) => {
 
   const fetchCategoriesCards = async () => {
     try {
-      const response = await fetch('http://192.168.56.1:3030/categories/all');
+      const response = await fetch(address + '/categories/all');
       const data = await response.json();
       setCategoriesCards(data);
     } catch (error) {
@@ -25,12 +26,19 @@ const Categories = ({ navigation }) => {
   return (
     <View>
       <Header navigation={navigation} />
-      {categoriesCards?.length ? ( 
+      {categoriesCards?.length ? (
         <View style={styles.containerCategories}>
-          <FlatList data={categoriesCards} 
+          <FlatList
+            data={categoriesCards}
             numColumns={2}
             keyExtractor={(item) => item.id}
-            renderItem={({item}) => <CategoryCard id={item.id} title={item.title} imageLink={item.imageLink}/>}
+            renderItem={({ item }) => (
+              <CategoryCard
+                id={item.id}
+                title={item.title}
+                imageLink={item.imageLink}
+              />
+            )}
             vertical
             contentContainerStyle={styles.contentList}
             showsHorizontalScrollIndicator={false}
@@ -43,16 +51,16 @@ const Categories = ({ navigation }) => {
   );
 };
 
-const styles = StyleSheet.create({ //Conferir estilos
+const styles = StyleSheet.create({
+  //Conferir estilos
   containerCategories: {
-      paddingTop: 20,
-      backgroundColor: '#FCF5EB',
-      width: "100%",
-      alignItems: "center",
-      justifyContent: "center",       
+    paddingTop: 12,
+    backgroundColor: '#FCF5EB',
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  contentList: {
-  },
+  contentList: {},
 });
 
 export default Categories;

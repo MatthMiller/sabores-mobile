@@ -21,6 +21,7 @@ const Header = ({ navigation }) => {
         <TouchableOpacity
           style={styles.loginButtonContainer}
           activeOpacity={0.7}
+          onPress={() => navigation.navigate('Login')}
         >
           <Image
             style={styles.loginIcon}

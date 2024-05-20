@@ -4,6 +4,7 @@ import { useFonts } from 'expo-font';
 import { StyleSheet } from 'react-native';
 import Categories from './src/Screens/Categories';
 import Home from './src/Screens/Home';
+import Login from './src/Screens/Login';
 
 const Stack = createStackNavigator();
 
@@ -39,6 +40,11 @@ const App = () => {
         <Stack.Screen
           name='Categories'
           component={Categories}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name='Login'
+          component={Login}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
