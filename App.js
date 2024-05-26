@@ -5,6 +5,7 @@ import { StyleSheet } from 'react-native';
 import Categories from './src/Screens/Categories';
 import Home from './src/Screens/Home';
 import Login from './src/Screens/Login';
+import Register from './src/Screens/Register';
 
 const Stack = createStackNavigator();
 
@@ -46,6 +47,11 @@ const App = () => {
         <Stack.Screen
           name='Login'
           component={Login}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name='Register'
+          component={Register}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
