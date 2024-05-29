@@ -5,13 +5,21 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-const CategoryCard = (props) => {
+const CategoryCard = ({ imageLink, title, impar, ultimoIndex }) => {
+  if (ultimoIndex) return null;
+
   return (
-    <TouchableOpacity>
-      <View>
-        <ImageBackground style={styles.img} source={{ uri: props.imageLink }}>
+    <TouchableOpacity style={styles.imageContainer}>
+      <View
+        style={
+          impar
+            ? [styles.marginContainer, styles.marginRight]
+            : [styles.marginContainer, styles.marginLeft]
+        }
+      >
+        <ImageBackground style={styles.img} source={{ uri: imageLink }}>
           <View>
-            <Text style={styles.text}>{props.title}</Text>
+            <Text style={styles.text}>{title}</Text>
           </View>
         </ImageBackground>
       </View>
@@ -20,12 +28,22 @@ const CategoryCard = (props) => {
 };
 export default CategoryCard;
 const styles = StyleSheet.create({
-  img: {
-    marginRight: 5,
-    marginLeft: 5,
+  imageContainer: {
+    flex: 1,
+    width: '100%',
+  },
+  marginContainer: {
     marginBottom: 10,
-    width: 176,
+    marginHorizontal: 5,
+  },
+  img: {
+    // marginRight: 5,
+    // marginLeft: 5,
+    // marginBottom: 10,
+    // width: 176,
+    marginRight: 20,
     height: 76,
+    width: '100%',
     borderRadius: 4,
     overflow: 'hidden',
   },
@@ -36,5 +54,11 @@ const styles = StyleSheet.create({
     fontFamily: 'UbuntuRegular',
     padding: 12,
     backgroundColor: 'rgba(0, 0, 0, 0.4)',
+  },
+  marginRight: {
+    marginRight: 5,
+  },
+  marginLeft: {
+    marginLeft: 5,
   },
 });

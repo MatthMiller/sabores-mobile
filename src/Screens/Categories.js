@@ -24,7 +24,7 @@ const Categories = ({ navigation }) => {
   };
 
   return (
-    <View>
+    <>
       <Header navigation={navigation} />
       {categoriesCards?.length ? (
         <View style={styles.containerCategories}>
@@ -32,10 +32,15 @@ const Categories = ({ navigation }) => {
             data={categoriesCards}
             numColumns={2}
             keyExtractor={(item) => item.id}
-            renderItem={({ item }) => (
+            renderItem={({ item, index }) => (
               <CategoryCard
                 id={item.id}
                 title={item.title}
+                impar={index % 2 === 0 ? false : true}
+                // isso vai ocultar o ultimo item caso seja ímpar...
+                ultimoIndex={
+                  categoriesCards.length - 1 === index ? true : false
+                }
                 imageLink={item.imageLink}
               />
             )}
@@ -47,7 +52,7 @@ const Categories = ({ navigation }) => {
       ) : (
         <Text>Carregando...</Text>
       )}
-    </View>
+    </>
   );
 };
 
@@ -57,10 +62,17 @@ const styles = StyleSheet.create({
     paddingTop: 12,
     backgroundColor: '#FCF5EB',
     width: '100%',
-    alignItems: 'center',
-    justifyContent: 'center',
+    flex: 1,
+    // alignItems: 'center',
+    // justifyContent: 'center',
+    gap: 16,
+    columnGap: 16,
+    paddingHorizontal: 12,
   },
-  contentList: {},
+  contentList: {
+    // width: '100%',
+    // flex: 1,
+  },
 });
 
 export default Categories;

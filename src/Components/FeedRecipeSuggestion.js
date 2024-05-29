@@ -104,13 +104,13 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     paddingVertical: 12,
     paddingHorizontal: 48,
+    marginTop: 32,
   },
   buttonText: {
     textAlign: 'center',
     color: '#012300',
     fontSize: 14,
     fontFamily: 'UbuntuMedium',
-    marginTop: 32,
   },
 });
 
